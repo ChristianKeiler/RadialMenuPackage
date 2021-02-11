@@ -1,0 +1,17 @@
+{
+    "name": "keiler.radialmenu.editor",
+    "references": [
+        "GUID:7112fd06d11004640840e35db01fab4b"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

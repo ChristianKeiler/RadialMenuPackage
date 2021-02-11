@@ -1,0 +1,21 @@
+{
+  "name": "com.keiler.radialmenu",
+  "version": "1.0.0",
+  "displayName": "Radial Menu",
+  "description": "An editor tool including a Radial Layout Group and a Radial Menu that can be used to create various UI Elements",
+  "unity": "2019.1",
+  "dependencies": {
+    "com.coffee.softmask-for-ugui": "1.0.0-preview.14"
+  },
+  "author": {
+    "name": "Christian Keiler",
+    "email": "christiank95@gmail.com",
+    "url": "https://github.com/ChristianKeiler"
+  },
+  "keywords": [
+    "ui",
+    "layoutgroup",
+    "radialmenu"
+  ],
+  "type": "tool"
+}
