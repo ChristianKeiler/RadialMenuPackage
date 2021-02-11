@@ -13,22 +13,22 @@ You may also just create a circular layout with a certain radius. To do so you c
 
 ## Installation
 
-#### Requirements
+### Requirements
 
 * Unity 2019.1 or later
 * [SoftMaskForUGUI by mob-sakai](https://github.com/mob-sakai/SoftMaskForUGUI)
 
-#### OpenUPM
+### OpenUPM
 
 OpenUPM is currently not supported. Once the package is ready for a full release this will be the official installation method so keep an eye out for the release.
 
-#### Git
+### Git
 
 Copy the repository URL: https://github.com/ChristianKeiler/com.keiler.radialmenu.git
 Inside Unity open Window->Package Manager. On the top left corner of the screen click the + Icon and choose 'Add package from git URL'.
 Paste the repository URL into the input field and click 'Add'
 
-#### Manual
+### Manual
 
 Download the latest releases *.zip folder
 Inside Unity open Window->Package Manager. On the top left corner of the screen click the + Icon and choose 'Add package from disk'.
