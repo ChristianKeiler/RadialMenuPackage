@@ -32,7 +32,7 @@ Paste the repository URL into the input field and click 'Add'
 
 ### Manual
 
-Download the latest releases *.zip folder
+[Download the latest releases *.zip folder](https://github.com/ChristianKeiler/RadialMenuPackage/releases)
 
 Inside Unity open Window->Package Manager. On the top left corner of the screen click the + Icon and choose 'Add package from disk'.
 
