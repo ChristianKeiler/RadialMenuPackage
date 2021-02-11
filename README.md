@@ -16,7 +16,7 @@ You may also just create a circular layout with a certain radius. To do so you c
 #### Requirements
 
 * Unity 2019.1 or later
-* [SoftMaskForUGUI by mob-sakai] (https://github.com/mob-sakai/SoftMaskForUGUI)
+* [SoftMaskForUGUI by mob-sakai](https://github.com/mob-sakai/SoftMaskForUGUI)
 
 #### OpenUPM
 
