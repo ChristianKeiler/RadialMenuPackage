@@ -17,6 +17,11 @@ You may also just create a circular layout with a certain radius. To do so you c
 
 * Unity 2019.1 or later
 * [SoftMaskForUGUI by mob-sakai](https://github.com/mob-sakai/SoftMaskForUGUI)
+* TextMeshPro
+
+### About TextMeshPro
+
+TextMeshPro is a temporary requirement. The package was written with a focus on TextMeshPro and while using it will give you the best possible result not everyone may want to use TMP. As such it will be removed as a requirement and changed into an optional Addon at a later date.
 
 ### OpenUPM
 
