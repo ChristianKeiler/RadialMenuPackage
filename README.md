@@ -25,11 +25,15 @@ OpenUPM is currently not supported. Once the package is ready for a full release
 ### Git
 
 Copy the repository URL: https://github.com/ChristianKeiler/com.keiler.radialmenu.git
+
 Inside Unity open Window->Package Manager. On the top left corner of the screen click the + Icon and choose 'Add package from git URL'.
+
 Paste the repository URL into the input field and click 'Add'
 
 ### Manual
 
 Download the latest releases *.zip folder
+
 Inside Unity open Window->Package Manager. On the top left corner of the screen click the + Icon and choose 'Add package from disk'.
+
 Select the downloaded zip and click 'Open'
