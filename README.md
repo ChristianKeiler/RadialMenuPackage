@@ -13,23 +13,32 @@ You may also just create a circular layout with a certain radius. To do so you c
 
 ## Installation
 
-#### Requirements
+### Requirements
 
 * Unity 2019.1 or later
-* [SoftMaskForUGUI by mob-sakai] (https://github.com/mob-sakai/SoftMaskForUGUI)
+* [SoftMaskForUGUI by mob-sakai](https://github.com/mob-sakai/SoftMaskForUGUI)
+* TextMeshPro
 
-#### OpenUPM
+### About TextMeshPro
+
+TextMeshPro is a temporary requirement. The package was written with a focus on TextMeshPro and while using it will give you the best possible result not everyone may want to use TMP. As such it will be removed as a requirement and changed into an optional Addon at a later date.
+
+### OpenUPM
 
 OpenUPM is currently not supported. Once the package is ready for a full release this will be the official installation method so keep an eye out for the release.
 
-#### Git
+### Git
 
-Copy the repository URL: https://github.com/ChristianKeiler/com.keiler.radialmenu.git
+Copy the repository URL: https://github.com/ChristianKeiler/RadialMenuPackage.git
+
 Inside Unity open Window->Package Manager. On the top left corner of the screen click the + Icon and choose 'Add package from git URL'.
+
 Paste the repository URL into the input field and click 'Add'
 
-#### Manual
+### Manual
 
-Download the latest releases *.zip folder
+[Download the latest releases *.zip folder and extract it to a location of your choice](https://github.com/ChristianKeiler/RadialMenuPackage/releases)
+
 Inside Unity open Window->Package Manager. On the top left corner of the screen click the + Icon and choose 'Add package from disk'.
-Select the downloaded zip and click 'Open'
+
+Locate your extracted files, select the package.json file and click 'Open'
