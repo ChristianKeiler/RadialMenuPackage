@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace Keiler.RadialMenu
@@ -21,21 +22,23 @@ namespace Keiler.RadialMenu
         private Sprite m_itemSprite;
 
         [SerializeField]
+        private GameObject m_customMenuItemPrefab;
+
+        [SerializeField]
         private RadialMenuItemAnimation m_itemAnimation;
 
-        private void OnEnable()
-        {
-            if (m_itemAnimation)
-            {
-                m_itemAnimation.Animate(true, m_children.Values.ToList());
-            }
-        }
+        #region EditorHelpers
+        public GameObject m_menuItemPrefab = null;
 
-        private void OnDisable()
+        public bool m_TMPisDefault = false;
+
+        #endregion
+
+        public void SetActive(bool enable)
         {
             if (m_itemAnimation)
             {
-                m_itemAnimation.Animate(false, m_children.Values.ToList());
+                StartCoroutine(m_itemAnimation.Animate(enable, transform.Cast<Transform>().ToList()));
             }
         }
 

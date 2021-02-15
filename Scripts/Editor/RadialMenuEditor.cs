@@ -12,7 +12,10 @@ namespace Keiler.RadialMenu
         private SerializedProperty m_buttonShape;
         private SerializedProperty m_buttonSize;
         private SerializedProperty m_itemSprite;
+        private SerializedProperty m_customMenuItemPrefab;
         private SerializedProperty m_menuItemAnimation;
+
+        private SerializedProperty m_menuItemPrefab;
         private void OnEnable()
         {
             transform = ((RadialMenu)target).transform;
@@ -21,7 +24,10 @@ namespace Keiler.RadialMenu
             m_buttonShape = serializedObject.FindProperty("m_buttonShape");
             m_buttonSize = serializedObject.FindProperty("m_buttonSize");
             m_itemSprite = serializedObject.FindProperty("m_itemSprite");
+            m_customMenuItemPrefab = serializedObject.FindProperty("m_customMenuItemPrefab");
             m_menuItemAnimation = serializedObject.FindProperty("m_itemAnimation");
+
+            m_menuItemPrefab = serializedObject.FindProperty("m_menuItemPrefab");
         }
 
         public override void OnInspectorGUI()
@@ -48,7 +54,20 @@ namespace Keiler.RadialMenu
 
             EditorGUILayout.LabelField(new GUIContent("Customization"), EditorStyles.boldLabel);
             EditorGUI.indentLevel++;
-            EditorGUILayout.PropertyField(m_itemSprite, new GUIContent("Custom Mask Sprite"));
+            EditorGUILayout.PropertyField(m_itemSprite, new GUIContent("Mask Sprite"));
+
+            GUILayout.BeginHorizontal();
+            EditorGUILayout.PropertyField(m_customMenuItemPrefab, new GUIContent("Menu Item Prefab"));
+            if(m_menuItemPrefab.objectReferenceValue != m_customMenuItemPrefab.objectReferenceValue)
+            {
+                if(GUILayout.Button(new GUIContent("Apply prefab")))
+                {
+                    m_menuItemPrefab.objectReferenceValue = m_customMenuItemPrefab.objectReferenceValue;
+                    ReplaceItems();
+                }
+            }
+            GUILayout.EndHorizontal();
+
             EditorGUILayout.PropertyField(m_menuItemAnimation, new GUIContent("Menu Item Animation", "Allows the RadialMenu to animate in and out. Define the animation yourself."));
             EditorGUI.indentLevel--;
 
@@ -60,9 +79,40 @@ namespace Keiler.RadialMenu
             }
         }
 
+        private void ReplaceItems()
+        {
+            int elements = transform.childCount;
+            while(transform.childCount != 0)
+            {
+                DestroyImmediate(transform.GetChild(0).gameObject);
+            }
+
+            for(int i = 0; i < elements; i++)
+            {
+                AddItem();
+            }
+        }
+
         private void AddItem()
         {
-            GameObject item = Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Packages/com.keiler.radialmenu/Resources/Prefabs/MenuItem.prefab"), transform);
+            GameObject item;
+            // if custom prefab is wanted instantiate this
+            if (m_customMenuItemPrefab.objectReferenceValue != null)
+            {
+                item = Instantiate((GameObject)m_customMenuItemPrefab.objectReferenceValue, transform);
+            }
+            // otherwise instantiate either a TextMeshPro item or a default UI item instead
+            else
+            {
+                if(((RadialMenu)target).m_TMPisDefault)
+                {
+                    item = Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Packages/com.keiler.radialmenu/Resources/Prefabs/TMPMenuItem.prefab"), transform);
+                }
+                else
+                {
+                    item = Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Packages/com.keiler.radialmenu/Resources/Prefabs/MenuItem.prefab"), transform);
+                }
+            }
             item.name = $"Item{transform.childCount - 1}";
             UnityEditor.Undo.RegisterCreatedObjectUndo(item, "Add Item to RadialMenu");
         }
