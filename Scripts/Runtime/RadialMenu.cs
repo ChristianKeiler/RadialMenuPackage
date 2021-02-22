@@ -34,6 +34,11 @@ namespace Keiler.RadialMenu
 
         #endregion
 
+        private void Awake()
+        {
+            UpdateChildPosition();
+        }
+
         public void SetActive(bool enable)
         {
             if (m_itemAnimation)
@@ -62,7 +67,7 @@ namespace Keiler.RadialMenu
                         {
                             child.localPosition = Vector3.zero;
                             child.localRotation = Quaternion.Euler(0, 0, WrapAngle((angle / 2) - angle * idx));
-                            UnityEngine.UI.Image image = child.GetComponent<UnityEngine.UI.Image>();
+                            UnityEngine.UI.Image image = child.GetComponentInChildren<UnityEngine.UI.Image>(true);
 #if UNITY_EDITOR
                             RectTransform childTransform = child.GetComponent<RectTransform>();
                             if (m_itemSprite)
