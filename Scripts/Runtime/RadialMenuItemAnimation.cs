@@ -6,6 +6,6 @@ namespace Keiler.RadialMenu
 {
     public abstract class RadialMenuItemAnimation : MonoBehaviour
     {
-        public abstract IEnumerator Animate(bool active, List<Transform> items);
+        public abstract IEnumerator Animate(bool active, bool instant, List<Transform> items);
     }
 }

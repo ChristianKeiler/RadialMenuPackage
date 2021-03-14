@@ -27,6 +27,8 @@ namespace Keiler.RadialMenu
         [SerializeField]
         private RadialMenuItemAnimation m_itemAnimation;
 
+        public bool IsRadialMenuActive { get; private set; } = false;
+
         #region EditorHelpers
         public GameObject m_menuItemPrefab = null;
 
@@ -39,11 +41,28 @@ namespace Keiler.RadialMenu
             UpdateChildPosition();
         }
 
-        public void SetActive(bool enable)
+        public void SetActive(bool enable, bool instant = false)
         {
             if (m_itemAnimation)
             {
-                StartCoroutine(m_itemAnimation.Animate(enable, transform.Cast<Transform>().ToList()));
+                StartCoroutine(m_itemAnimation.Animate(enable, instant, transform.Cast<Transform>().ToList()));
+            }
+
+            IsRadialMenuActive = enable;
+        }
+
+        private void OnEnable()
+        {
+            if(!m_itemAnimation)
+            {
+                IsRadialMenuActive = true;
+            }
+        }
+        private void OnDisable()
+        {
+            if (!m_itemAnimation)
+            {
+                IsRadialMenuActive = false;
             }
         }
 
